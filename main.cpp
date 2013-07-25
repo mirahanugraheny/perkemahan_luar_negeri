@@ -1,4 +1,3 @@
-
 #include <cstdlib>
 #include <stdio.h>
 #include <stdlib.h>
@@ -190,16 +189,19 @@ Gambar * loadTexture4() {
 
 
 
-//train 2D
-//class untuk terain 2D
+/*------------------------------------------------------*\
+    Class Terrain 
+    -- Objek daratan --
+\*------------------------------------------------------*/
 class Terrain {
 private:
-	int w; //Width
-	int l; //Length
-	float** hs; //Heights
-	Vec3f** normals;
+	int w; //variabel lebar
+	int l; //variabel panjang
+	float** hs; //variabel tinggi
+	Vec3f** normals; //variabel untuk pengembangan vektor objek 3 dimensi
 	bool computedNormals; //Whether normals is up-to-date
 public:
+
 	Terrain(int w2, int l2) {
 		w = w2;
 		l = l2;
