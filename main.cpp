@@ -1277,7 +1277,7 @@ void display(void) {
 
 void init(void) {
     glEnable(GL_TEXTURE_2D);
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);//Agar seluruh proses yang terjadi di buffer belakang pindah ke buffer layar 
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	glDepthFunc(GL_LESS);
@@ -1285,7 +1285,7 @@ void init(void) {
 	glEnable(GL_COLOR_MATERIAL);
 	glDepthFunc(GL_LEQUAL);
 	glShadeModel(GL_SMOOTH);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);//digunakan sebagai pemberitahuan untuk OpenGL agar menggunakan perhitungan perspective yang terbaik
 	glEnable(GL_CULL_FACE);
 	
 	//Inisialisais terrain dengan mengambil gambar sesuai dengan nama file
@@ -1324,8 +1324,8 @@ void init(void) {
 	glGenTextures(3, texture);
 	//binding texture untuk membuat texture 2D
 	glBindTexture(GL_TEXTURE_2D, texture[0]);//menempelkan gambar dari texture ke objek, texture array ke 0 yaitu atap.bmp
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);//GL_TEXTURE_MIN_FILTER-->untuk memfilter Lebih dari satu texel yang dapat dicakup sebuah pixel
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);//GL_TEXTURE_MAG_FILTER-->untuk memfilter lebih dari satu piksel yang dapat dicakup sebuah texel
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, gambar1->sizeX, gambar1->sizeY, 0, GL_RGB,
     GL_UNSIGNED_BYTE, gambar1->data);
 
