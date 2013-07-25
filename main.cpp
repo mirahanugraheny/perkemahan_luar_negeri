@@ -1260,7 +1260,7 @@ void init(void) {
 	glEnable(GL_COLOR_MATERIAL);
 	glDepthFunc(GL_LEQUAL);
 	glShadeModel(GL_SMOOTH);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);//digunakan sebagai pemberitahuan untuk OpenGL agar menggunakan perhitungan perspective yang terbaik
 	glEnable(GL_CULL_FACE);
 
 	_terrain = loadTerrain("heightmap.bmp", 20);
@@ -1395,9 +1395,9 @@ void keyboard(unsigned char key, int x, int y) {
 }
 
 void reshape(int w, int h) {
-	glViewport(0, 0, (GLsizei) w, (GLsizei) h);
+	glViewport(0, 0, (GLsizei) w, (GLsizei) h);//untuk menentukan titik awal dan titik akhir (pixel tampilan)
 	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
+	glLoadIdentity();//untuk memanggil matriks identitas ke matriks agar nilai-nilai awal kembali ke pusat koordinat (0,0,0)
 	gluPerspective(60, (GLfloat) w / (GLfloat) h, 0.1, 1000.0);//proyeksi sudut pandang 60 derajat
 	glMatrixMode(GL_MODELVIEW);
 }
