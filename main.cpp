@@ -714,7 +714,7 @@ void bunga()
     glDisable(GL_TEXTURE_2D);
 }
 
-
+//Mirah Anugraheny
 void pohon(){
 	glColor3ub(104,70,14); // menentukan warna coklat untuk batang pohon
 	//<<<<<<<<<<<<<<<<<<<< Batang >>>>>>>>>>>>>>>>>>>>>>>
@@ -748,6 +748,7 @@ void pohon(){
 	glPopMatrix();//untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 }
 
+//Mirah Anugraheny
 void pagarjadi()
 {
 	//pohon
@@ -807,6 +808,7 @@ void pagarjadi()
 
 }
 
+//Mirah Anugraheny
 //BUS
 void bus()
 {
