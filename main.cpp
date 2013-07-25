@@ -516,187 +516,185 @@ void pagar()
     glPopMatrix();//untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 }
 
+//fitrianingsih
 void bendera()
  {
 
 GLUquadricObj *quad = gluNewQuadric();
 
 //tiang bendera
-    glPushMatrix();
-    glColor3f(1.0,1.0,1.0);
-    glTranslated(0.0,-10,0.0);
-    glRotated(90,-1.0,0.0,0.0);
-    glScaled(2.5,2.5,20);
-    gluCylinder(quad,0.2,0.2,2,50,50);
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glColor3f(1.0,1.0,1.0);//digunakan untuk membuat warna garis / titik
+    glTranslated(0.0,-10,0.0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,-1.0,0.0,0.0);//digunakan untuk merotasi / memutar suatu objek
+    glScaled(2.5,2.5,20);//digunakan untuk memperbesar / memperkecil suatu objek
+    gluCylinder(quad,0.2,0.2,2,50,50);//digunakan untuk membuat objek tabung
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
 
 //dasar tiang
-    glPushMatrix();
-    glColor3f(1.0,1.0,1.0);
-    glTranslated(0.0,-8.0,0.0);
-    glRotated(90,-1.0,0.0,0.0);
-    glScaled(10,10,1);
-    gluCylinder(quad,0.2,0.2,2,50,50);
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glColor3f(1.0,1.0,1.0);//digunakan untuk menentukan warna pada garis / titik
+    glTranslated(0.0,-8.0,0.0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,-1.0,0.0,0.0);//digunakan untuk merotasi / memutar suatu objek
+    glScaled(10,10,1);//digunakan untuk memperbesar / memperkecil suatu objek
+    gluCylinder(quad,0.2,0.2,2,50,50);//digunakan untuk membuat objek tabung
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
 //tutup dasartiang
-    glDisable(GL_CULL_FACE);
-    glPushMatrix();
-    glColor3f(0.8f, 0.4f, 0.1f);
-    glTranslated(0,-8,0);
-    glRotated(90,-1,0,0);
+    glDisable(GL_CULL_FACE);//digunakan untuk mematikan fungsi openGL yang sedang aktifkan
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glColor3f(0.8f, 0.4f, 0.1f);//digunakan untuk menentukan warna pada garis / titik
+    glTranslated(0,-8,0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,-1,0,0);//digunakan untuk merotasi / memutar suatu objek
     gluDisk(quad,0,2,50,1);
-    glPopMatrix();
-    glEnable(GL_CULL_FACE);
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
+    glEnable(GL_CULL_FACE);//digunakan untuk mengaktifkan kembali fungsi openGL
 
 //benderamerah
-    glPushMatrix();
-    glColor3f(255,255,255);
-    glTranslated(4,29,0);
-    glScaled(8,2,0.1);
-    glutSolidCube(1);
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glColor3f(255,255,255);//digunakan untuk menentukan warna pada garis / titik
+    glTranslated(4,29,0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(8,2,0.1);//digunakan untuk memperbesar / memperkecil suatu objek
+    glutSolidCube(1);//digunakan untuk membuat objek kubus
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
 //benderaputih
-    glPushMatrix();
-    glColor3f(255,0,0);
-    glTranslated(4,27,0);
-    glScaled(8,2,0.1);
-    glutSolidCube(1);
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glColor3f(255,0,0);//digunakan untuk menentukan warna pada garis / titik
+    glTranslated(4,27,0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(8,2,0.1);//digunakan untuk memperbesar / memperkecil suatu objek
+    glutSolidCube(1);//digunakan untuk membuat objek kubus
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
 //tutup tiang
-    glDisable(GL_CULL_FACE);
-    glPushMatrix();
-    glColor3f(0.8f, 0.4f, 0.1f);
-    glTranslated(0,-10,0.0);
-    glRotated(90,-1.0,0.0,0.0);
+    glDisable(GL_CULL_FACE);//digunakan untuk mematikan fungsi openGL yang sedang aktifkan
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glColor3f(0.8f, 0.4f, 0.1f);//digunakan untuk menentukan warna pada garis / titik
+    glTranslated(0,-10,0.0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,-1.0,0.0,0.0);//digunakan untuk merotasi / memutar suatu objek
     gluDisk(quad,0,0.5,50,1);
-    glPopMatrix();
-    glEnable(GL_CULL_FACE);
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
+    glEnable(GL_CULL_FACE);//digunakan untuk mengaktifkan kembali fungsi openGL
 
 
 
 //tangga 1
-    glPushMatrix();
-    glTranslated(0,-8,0);
-    glScaled(25,1.5,25);
-    glutSolidCube(1);
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslated(0,-8,0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(25,1.5,25);//digunakan untuk memperbesar / memperkecil suatu objek
+    glutSolidCube(1);//digunakan untuk membuat objek kubus
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
 //tangga 2
-    glPushMatrix();
-    glTranslated(0,-9,0);
-    glScaled(29,1.5,29);
-    glutSolidCube(1);
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslated(0,-9,0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(29,1.5,29);//digunakan untuk memperbesar / memperkecil suatu objek
+    glutSolidCube(1);//digunakan untuk membuat objek kubus
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
 //tangga 3
-    glPushMatrix();
-    glTranslated(0,-10,0);
-    glScaled(33,1.5,33);
-    glutSolidCube(1);
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslated(0,-10,0);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(33,1.5,33);//digunakan untuk memperbesar / memperkecil suatu objek
+    glutSolidCube(1);//digunakan untuk membuat objek kubus
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
  }
 
-//kelompok fitri
-
-//rumah
-
+//fitrianingsih
 void rumah()
 {
-    glDisable(GL_CULL_FACE);
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D,texture[0]);
-    glPushMatrix();
-    glTranslatef(-5.0f,0.0f,-3.0f);
+    glDisable(GL_CULL_FACE);//digunakan untuk mematikan fungsi openGL yang sedang aktifkan
+    glEnable(GL_TEXTURE_2D);//digunakan untuk mengaktifkan kembali fungsi openGL
+    glBindTexture(GL_TEXTURE_2D,texture[0]);//digunakan untuk memasang tekstur pada objek 2d
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslatef(-5.0f,0.0f,-3.0f);//digunakan untuk mentranslasi / memindahkan posisi objek
 
      //atap kanan
-    glBegin(GL_POLYGON);
-    glColor3f(1.0f, 0.4f, 0.0f);
-        glTexCoord2f(1.0,0.0);glVertex3f(0.75,0.7,0.0);
-        glTexCoord2f(1.0,1.0);glVertex3f(1.5,0.5,0.0);
-        glTexCoord2f(0.0,1.0);glVertex3f(1.5,0.5,-1.8);
-        glTexCoord2f(0.0,0.0);glVertex3f(0.75,0.7,-1.8);
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+    glColor3f(1.0f, 0.4f, 0.0f);//digunakan untuk menentukan warna pada garis / titik
+        glTexCoord2f(1.0,0.0);glVertex3f(0.75,0.7,0.0);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,1.0);glVertex3f(1.5,0.5,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
+        glTexCoord2f(0.0,1.0);glVertex3f(1.5,0.5,-1.8);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(0.0,0.0);glVertex3f(0.75,0.7,-1.8);//glVertex3f digunakan untuk menentukan garis x,y,z
     glEnd();
 
     //atap kiri
-    glBegin(GL_POLYGON);
-        glTexCoord2f(1.0,0.0);glVertex3f(0.75,0.7,0.0);
-        glTexCoord2f(1.0,1.0);glVertex3f(0.0,0.5,0.0);
-        glTexCoord2f(0.0,1.0);glVertex3f(0.0,0.5,-1.8);
-        glTexCoord2f(0.0,0.0);glVertex3f(0.75,0.7,-1.8);
-    glEnd();
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+        glTexCoord2f(1.0,0.0);glVertex3f(0.75,0.7,0.0);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,1.0);glVertex3f(0.0,0.5,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
+        glTexCoord2f(0.0,1.0);glVertex3f(0.0,0.5,-1.8);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(0.0,0.0);glVertex3f(0.75,0.7,-1.8);//glVertex3f digunakan untuk menentukan garis x,y,z
+    glEnd();//digunakan untuk mengakhiri perintah dari openGL
 
-    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_TEXTURE_2D);//digunakan untuk mematikan fungsi openGL yang sedang aktifkan
     //bagian atas
-    glBegin(GL_POLYGON);
-    glColor3f(1.0f,0.4f,0.0f);
-        glVertex3f(0.0,0.5,0.0);
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+    glColor3f(1.0f,0.4f,0.0f);//digunakan untuk menentukan warna pada garis / titik
+        glVertex3f(0.0,0.5,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
         glVertex3f(1.5,0.5,0.0);
         glVertex3f(1.5,0.5,-1.8);
         glVertex3f(0.0,0.5,-1.8);
-    glEnd();
+    glEnd();//digunakan untuk mengakhiri perintah dari openGL
 
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D,texture[1]);
+    glEnable(GL_TEXTURE_2D);//digunakan untuk mengaktifkan kembali fungsi openGL
+    glBindTexture(GL_TEXTURE_2D,texture[1]);//digunakan untuk memasang tekstur pada objek 2d
     //bagian belakang
-    glBegin(GL_POLYGON);
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
     //glColor3f(0.1f,0.0f,0.0f);
-        glTexCoord2f(0.0,0.0);glVertex3f(0.0,0.0,-1.8);
-        glTexCoord2f(1.0,0.0);glVertex3f(1.5,0.0,-1.8);
+        glTexCoord2f(0.0,0.0);glVertex3f(0.0,0.0,-1.8);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,0.0);glVertex3f(1.5,0.0,-1.8);//glVertex3f digunakan untuk menentukan garis x,y,z
         glTexCoord2f(1.0,1.0);glVertex3f(1.5,0.5,-1.8);
         glTexCoord2f(0.0,1.0);glVertex3f(0.0,0.5,-1.8);
-    glEnd();
+    glEnd();//digunakan untuk mengakhiri perintah dari openGL
 
     //bagian kanan
-    glBegin(GL_POLYGON);
-        glTexCoord2f(1.0,0.0);glVertex3f(0.0,0.0,0.0);
-        glTexCoord2f(1.0,1.0);glVertex3f(0.0,0.5,0.0);
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+        glTexCoord2f(1.0,0.0);glVertex3f(0.0,0.0,0.0);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,1.0);glVertex3f(0.0,0.5,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
         glTexCoord2f(0.0,1.0);glVertex3f(0.0,0.5,-1.8);
         glTexCoord2f(0.0,0.0);glVertex3f(0.0,0.0,-1.8);
-    glEnd();
+    glEnd();//digunakan untuk mengakhiri perintah dari openGL
 
     //bagian tutup kanan
-    glBegin(GL_POLYGON);
-        glTexCoord2f(0.0,0.0);glVertex3f(0.0,0.0,0.0);
-        glTexCoord2f(1.0,0.0);glVertex3f(0.5,0.0,0.0);
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+        glTexCoord2f(0.0,0.0);glVertex3f(0.0,0.0,0.0);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,0.0);glVertex3f(0.5,0.0,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
         glTexCoord2f(1.0,1.0);glVertex3f(0.5,0.5,0.0);
         glTexCoord2f(0.0,1.0);glVertex3f(0.0,0.5,0.0);
-    glEnd();
+    glEnd();//digunakan untuk mengakhiri perintah dari openGL
 
     //bagian kiri
-    glBegin(GL_POLYGON);
-        glTexCoord2f(1.0,0.0);glVertex3f(1.5,0.0,0.0);
-        glTexCoord2f(1.0,1.0);glVertex3f(1.5,0.5,0.0);
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+        glTexCoord2f(1.0,0.0);glVertex3f(1.5,0.0,0.0);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,1.0);glVertex3f(1.5,0.5,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
         glTexCoord2f(0.0,1.0);glVertex3f(1.5,0.5,-1.8);
         glTexCoord2f(0.0,0.0);glVertex3f(1.5,0.0,-1.8);
-    glEnd();
+    glEnd();//digunakan untuk mengakhiri perintah dari openGL
 
     //bagian tutup kiri
-    glBegin(GL_POLYGON);
-        glTexCoord2f(0.0,0.0);glVertex3f(1.5,0.0,0.0);
-        glTexCoord2f(1.0,0.0);glVertex3f(1,0.0,0.0);
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+        glTexCoord2f(0.0,0.0);glVertex3f(1.5,0.0,0.0);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,0.0);glVertex3f(1,0.0,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
         glTexCoord2f(1.0,1.0);glVertex3f(1,0.5,0.0);
         glTexCoord2f(0.0,1.0);glVertex3f(1.5,0.5,0.0);
-    glEnd();
-    glDisable(GL_TEXTURE_2D);
+    glEnd();//digunakan untuk mengakhiri perintah dari openGL
+    glDisable(GL_TEXTURE_2D);//digunakan untuk mematikan fungsi openGL yang sedang aktifkan
 
     //pintu
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D,texture[2]);
-    glBegin(GL_POLYGON);
-        glTexCoord2f(0.0,0.0);glVertex3f(0.5,0.0,0.0);
-        glTexCoord2f(1.0,0.0);glVertex3f(1,0.0,0.0);
+    glEnable(GL_TEXTURE_2D);//digunakan untuk mengaktifkan kembali fungsi openGL
+    glBindTexture(GL_TEXTURE_2D,texture[2]);//digunakan untuk memasang tekstur pada objek 2d
+    glBegin(GL_POLYGON);//digunakan untuk menggambarkan sebuah lingkaran
+        glTexCoord2f(0.0,0.0);glVertex3f(0.5,0.0,0.0);//glTexCoord2f digunakan untuk memetakan tekstur
+        glTexCoord2f(1.0,0.0);glVertex3f(1,0.0,0.0);//glVertex3f digunakan untuk menentukan garis x,y,z
         glTexCoord2f(1.0,1.0);glVertex3f(1,0.5,0.0);
         glTexCoord2f(0.0,1.0);glVertex3f(0.5,0.5,0.0);
-    glEnd();
+    glEnd();;//digunakan untuk mengakhiri perintah dari openGL
 
-    glPopMatrix();
-    glDisable(GL_TEXTURE_2D);
-    glEnable(GL_CULL_FACE);
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
+    glDisable(GL_TEXTURE_2D);//digunakan untuk mematikan fungsi openGL yang sedang aktifkan
+    glEnable(GL_CULL_FACE);//digunakan untuk mengaktifkan kembali fungsi openGL
 }
 
 void bunga()
@@ -1054,93 +1052,95 @@ void display(void) {
         pohon();
         glPopMatrix();
     }
+    
+//fitrianingsih   
     //dis rumah hadap depan
-	glPushMatrix();
-	glTranslated(30,0,-10);//untuk mentranslasi / memindahkan posisi objek
-    glScaled(20, 50, 20);//untuk mengubah ukuran(memperbesar/memperkecil) objek
-	rumah();
-	glPopMatrix();
+	glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+	glTranslated(30,0,-10);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(20, 50, 20);//digunakan untuk memperbesar / memperkecil suatu objek
+	rumah();//memanggil void
+	glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 
-    glPushMatrix();
-    glTranslatef(-23,0,-80);//untuk mentranslasi / memindahkan posisi objek
-    pagarjadi();
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslatef(-23,0,-80);//digunakan untuk mentranslasi / memindahkan posisi objek
+    pagarjadi();//memanggil void
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
     //dis rumah 2
-    glPushMatrix();
-	glTranslated(30,0,80);
-    glScaled(20, 50, 20);//untuk mengubah ukuran(memperbesar/memperkecil) objek
-	rumah();
-	glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+	glTranslated(30,0,80);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(20, 50, 20);//digunakan untuk memperbesar / memperkecil suatu objek
+	rumah();//memanggil void
+	glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
-    glPushMatrix();
-    glTranslatef(-23,0,5);//untuk mentranslasi / memindahkan posisi objek
-    pagarjadi();
-    glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslatef(-23,0,5);//digunakan untuk mentranslasi / memindahkan posisi objek
+    pagarjadi();//memanggil void
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
     //dis rumah hadap kanan
-    glPushMatrix();
-	glTranslated(-70,0,-160);
-    glScaled(20, 50, 20);//untuk mengubah ukuran(memperbesar/memperkecil) objek
-    glRotated(90,0,1,0);
-	rumah();
-	glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+	glTranslated(-70,0,-160);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(20, 50, 20);//digunakan untuk memperbesar / memperkecil suatu objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi / memutar suatu objek
+	rumah();//memanggil void
+	glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
-	glPushMatrix();
-    glTranslatef(-140,0,-110);//untuk mentranslasi / memindahkan posisi objek
-    glRotated(90,0,1,0);
-    pagarjadi();
-    glPopMatrix();
+	glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslatef(-140,0,-110);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi objek
+    pagarjadi();//memanggil void
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
     //dis rumah kanan 2
-    glPushMatrix();
-	glTranslated(-70,0,-90);//untuk mentranslasi / memindahkan posisi objek
-    glScaled(20, 50, 20);//untuk mengubah ukuran(memperbesar/memperkecil) objek
-    glRotated(90,0,1,0);
-	rumah();
-	glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+	glTranslated(-70,0,-90);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(20, 50, 20);//digunakan untuk memperbesar / memperkecil suatu objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi / memutar suatu objek
+	rumah();//memanggil void
+	glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
-	glPushMatrix();
-    glTranslatef(-140,0,-37);
-    glRotated(90,0,1,0);
-    pagarjadi();
-    glPopMatrix();
-
-    // dis rumah kanan 3
-    glPushMatrix();
-	glTranslated(105,0,-180);//untuk mentranslasi / memindahkan posisi objek
-    glScaled(20, 50, 20);//untuk mengubah ukuran(memperbesar/memperkecil) objek
-    glRotated(90,0,1,0);
-	rumah();
-	glPopMatrix();
-
-	glPushMatrix();
-    glTranslatef(35,0,-130);//untuk mentranslasi / memindahkan posisi objek
-    glRotated(90,0,1,0);
-    pagarjadi();
-    glPopMatrix();
+	glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslatef(-140,0,-37);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi / memutar suatu objek
+    pagarjadi();//memanggil void
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
     // dis rumah kanan 3
-    glPushMatrix();
-	glTranslated(105,0,-85);//untuk mentranslasi / memindahkan posisi objek
-    glScaled(20, 50, 20);//untuk mengubah ukuran(memperbesar/memperkecil) objek
-    glRotated(90,0,1,0);
-	rumah();
-	glPopMatrix();
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+	glTranslated(105,0,-180);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(20, 50, 20);//digunakan untuk memperbesar / memperkecil suatu objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi / memutar suatu objek
+	rumah();//memanggil void
+	glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
-	glPushMatrix();
-    glTranslatef(35,0,-35);//untuk mentranslasi / memindahkan posisi objek
-    glRotated(90,0,1,0);
-    pagarjadi();
-    glPopMatrix();
+	glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslatef(35,0,-130);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi / memutar suatu objek
+    pagarjadi();//memanggil void
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
+
+    // dis rumah kanan 3
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+	glTranslated(105,0,-85);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScaled(20, 50, 20);//digunakan untuk memperbesar / memperkecil suatu objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi / memutar suatu objek
+	rumah();//memanggil void
+	glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
+
+	glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslatef(35,0,-35);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glRotated(90,0,1,0);//digunakan untuk merotasi / memutar suatu objek
+    pagarjadi();//memanggil void
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
 //dis bendera
-    glDisable(GL_CULL_FACE);
-    glPushMatrix();
-    glTranslated(-70,15,110);
-    glScalef(1.5,1.5,1.5);//untuk mengubah ukuran(memperbesar/memperkecil) objek
-    bendera();
-    glPopMatrix();
+    glDisable(GL_CULL_FACE);//bendera
+    glPushMatrix();//digunakan untuk menyimpan koordinat yang telah dibuat
+    glTranslated(-70,15,110);//digunakan untuk mentranslasi / memindahkan posisi objek
+    glScalef(1.5,1.5,1.5);//digunakan untuk memperbesar / memperkecil suatu objek
+    bendera();//memanggil void
+    glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
 //dis bus
     glPushMatrix();//untuk menyimpan koordinat yang telah dibuat
