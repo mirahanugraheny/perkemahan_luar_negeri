@@ -187,7 +187,7 @@ Gambar * loadTexture4() {
 
 
 
-
+// Dimmy Nosepta P
 
 /*------------------------------------------------------*\
     Class Terrain 
@@ -464,6 +464,8 @@ void awan(void){
     glPopMatrix();
 }
 
+//Mirah Anugraheny
+
 //PAGAR
 void pagar()
 {
@@ -697,6 +699,7 @@ void rumah()
     glEnable(GL_CULL_FACE);//digunakan untuk mengaktifkan kembali fungsi openGL
 }
 
+//Mirah Anugraheny
 void bunga()
 {
     glColor3f(1,1,1);//menentukan warna untuk texture bunga
@@ -928,7 +931,7 @@ void bus()
     glPopMatrix();//untuk memanggil fungsi - fungsi yang telah dibuat pada glPushMatrix()
 }
 
-
+//Mirah Anugraheny
 void display(void) {
 
 	glClearStencil(0); //untuk membersihkan stencil buffer
@@ -1142,15 +1145,16 @@ void display(void) {
     bendera();//memanggil void
     glPopMatrix();//digunakan untuk memanggil fungsi - fungsi yang telah dibuat pada glPush
 
+//Mirah Anugrhaeny
 //dis bus
     glPushMatrix();//untuk menyimpan koordinat yang telah dibuat
     //bus gerak
-    if (gerak<=500)
+    if (gerak<=500)//jika gerak kurang dari samadengan 500
     {
-        glTranslatef(18, 0, gerak);
-        gerak+=1;
-        if (gerak==360)//batas jalan pojok
-            {gerak=27.0;}// posisi awal mobil
+        glTranslatef(18, 0, gerak);//lakukan gerak di titik z
+        gerak+=1;//dengan penambahan 1 titik
+        if (gerak==360)//batas akhir gerak bis
+            {gerak=27.0;}// posisi awal bis
     }
     glTranslated(190,0,-200);//untuk mentranslasi / memindahkan posisi objek
     glScaled(2,2,2);//untuk mengubah ukuran(memperbesar/memperkecil) objek
@@ -1158,6 +1162,7 @@ void display(void) {
     bus();
     glPopMatrix();
 
+//Dimmy Nosepta P
      //Penggambaran awan
     glPushMatrix();
     glTranslatef(0, 100, -150);//penentuan usulan
@@ -1183,6 +1188,7 @@ void display(void) {
     awan();
     glPopMatrix();
 
+//Mirah Anugraheny
     // dis bunga
 // belakang rumah
     for(int b=-110; b<=20; b=b+50)
