@@ -189,33 +189,36 @@ Gambar * loadTexture4() {
 
 
 
-//train 2D
-//class untuk terain 2D
+/*------------------------------------------------------*\
+    Class Terrain 
+    -- Objek daratan --
+\*------------------------------------------------------*/
 class Terrain {
 private:
-	int w; //Width
-	int l; //Length
-	float** hs; //Heights
-	Vec3f** normals;
+	int w; //variabel lebar
+	int l; //variabel panjang
+	float** hs; //variabel tinggi
+	Vec3f** normals; //variabel untuk pengembangan vektor objek 3 dimensi
 	bool computedNormals; //Whether normals is up-to-date
 public:
+ 	//Method terrain berisi 2 parameter
 	Terrain(int w2, int l2) {
 		w = w2;
 		l = l2;
 
-		hs = new float*[l];
+		hs = new float*[l]; //new objek hs dengan tipe float 
 		for (int i = 0; i < l; i++) {
 			hs[i] = new float[w];
 		}
 
-		normals = new Vec3f*[l];
+		normals = new Vec3f*[l]; //new objek vektor normal
 		for (int i = 0; i < l; i++) {
 			normals[i] = new Vec3f[w];
 		}
 
 		computedNormals = false;
 	}
-
+	//Method jika not terrain ..
 	~Terrain() {
 		for (int i = 0; i < l; i++) {
 			delete[] hs[i];
@@ -227,34 +230,34 @@ public:
 		}
 		delete[] normals;
 	}
-
+	//Fungsi yang digunakan sebagai width (lebar)
 	int width() {
 		return w;
 	}
-
+	 //Fungsi yang digunakan sebagai length (panjang)
 	int length() {
 		return l;
 	}
 
-	//Sets the height at (x, z) to y
+	//Procedure setHeight untuk mengatur tinggi x y dan z
 	void setHeight(int x, int z, float y) {
 		hs[z][x] = y;
 		computedNormals = false;
 	}
 
-	//Returns the height at (x, z)
+	//Function menghasilkan tinggi
 	float getHeight(int x, int z) {
 		return hs[z][x];
 	}
 
-	//Computes the normals, if they haven't been computed yet
+	/ / Menghitung normals, jika belum dihitung
 	void computeNormals() {
-		if (computedNormals) {
+		if (computedNormals) {{ //jika true
 			return;
 		}
 
-		//Compute the rough version of the normals
-		Vec3f** normals2 = new Vec3f*[l];
+		//hitung
+		Vec3f** normals2 = new Vec3f*[l];//new vektor pointer normal
 		for (int i = 0; i < l; i++) {
 			normals2[i] = new Vec3f[w];
 		}
@@ -264,11 +267,11 @@ public:
 				Vec3f sum(0.0f, 0.0f, 0.0f);
 
 				Vec3f out;
-				if (z > 0) {
+				if (z > 0) { // vektor out yang digunakan pembuatan vector normal belakang sesuai dengan x y z
 					out = Vec3f(0.0f, hs[z - 1][x] - hs[z][x], -1.0f);
 				}
 				Vec3f in;
-				if (z < l - 1) {
+				if (z < l - 1) { // vector in yang digunakan vector normal depan sesuai dengan x y z
 					in = Vec3f(0.0f, hs[z + 1][x] - hs[z][x], 1.0f);
 				}
 				Vec3f left;
@@ -276,10 +279,10 @@ public:
 					left = Vec3f(-1.0f, hs[z][x - 1] - hs[z][x], 0.0f);
 				}
 				Vec3f right;
-				if (x < w - 1) {
+				if (x < w - 1) { // vector right yang digunakan pembuatan vector normal kanan sesuai x y z 
 					right = Vec3f(1.0f, hs[z][x + 1] - hs[z][x], 0.0f);
 				}
-
+				//Perhitungan Jumlah untuk pengisian nilai normal x dan z
 				if (x > 0 && z > 0) {
 					sum += out.cross(left).normalize();
 				}
@@ -331,7 +334,7 @@ public:
 		computedNormals = true;
 	}
 
-	//Returns the normal at (x, z)
+	//Function untuk nilai normal
 	Vec3f getNormal(int x, int z) {
 		if (!computedNormals) {
 			computeNormals();
@@ -342,29 +345,39 @@ public:
 //end class
 
 
-
-//Loads a terrain from a heightmap.  The heights of the terrain range from
-//-height / 2 to height / 2.
-//load terain di procedure inisialisasi
+/*------------------------------------------------*\
+    Procedure Terrain 
+    Load terrain berdasakan file dan tinggi
+\*------------------------------------------------*/
+// load terain di prosedur inisialisasi
+//ketinggian
 Terrain* loadTerrain(const char* filename, float height) {
-	Image* image = loadBMP(filename);
-	Terrain* t = new Terrain(image->width, image->height);
+	Image* image = loadBMP(filename);//Pengambilan gambar berdasarkan filename
+	Terrain* t = new Terrain(image->width, image->height);//New Objek Terrain
+	//--Pengaturan tinggi berdasarkan kedalaman warna 
 	for (int y = 0; y < image->height; y++) {
 		for (int x = 0; x < image->width; x++) {
 			unsigned char color = (unsigned char) image->pixels[3 * (y
 					* image->width + x)];
-			float h = height * ((color / 255.0f) - 0.5f);
+			float h = height * ((color / 255.0f) - 0.5f);// perhitungan kedalaman warna
 			t->setHeight(x, y, h);
 		}
 	}
-
+	 //--Hapus image setelah pengaturan tinggi
 	delete image;
 	t->computeNormals();
 	return t;
 }
 
 float _angle = 60.0f;
-//buat tipe data terain
+/* 
+    Inisialisasi Terain baru
+    Pembuatan : 
+        terain air
+        terain Jalan
+        terain kolam
+*/
+
 Terrain* _terrain;
 Terrain* _terrainAir;
 Terrain* _terrainStreet;
@@ -388,18 +401,26 @@ void cleanup() {
 	//delete _terrainTanah;
 }
 
-//untuk di display
+/*-----------------------------------------------------------------------*\
+    Procedure drawSceneTanah()
+    Penggambaran untuk display tanah berdasarkan nilai terain
+    dan Nilai RGB
+\*-----------------------------------------------------------------------*/
 void drawSceneTanah(Terrain *terrain, GLfloat r, GLfloat g, GLfloat b) {
-
+	//Penskalaan 
 	float scale = 500.0f / max(terrain->width() - 1, terrain->length() - 1);
+	//Skala ukuran objek
 	glScalef(scale, scale, scale);
+	//Pengaturan Posisi
 	glTranslatef(-(float) (terrain->width() - 1) / 2, 0.0f,
 			-(float) (terrain->length() - 1) / 2);
-
+	//Pewarnaan sesuai nilai RGB
 	glColor3f(r, g, b);
+	//Pengulangan hingga terrain->length
 	for (int z = 0; z < terrain->length() - 1; z++) {
-		//Makes OpenGL draw a triangle at every three consecutive vertices
+		//Fungsi Pembuatam objek segitiga (triangle) pembentukan 3 sudut
 		glBegin(GL_TRIANGLE_STRIP);
+		//Pengulangan hingga terrain->width
 		for (int x = 0; x < terrain->width(); x++) {
 			Vec3f normal = terrain->getNormal(x, z);
 			glNormal3f(normal[0], normal[1], normal[2]);
@@ -408,19 +429,23 @@ void drawSceneTanah(Terrain *terrain, GLfloat r, GLfloat g, GLfloat b) {
 			glNormal3f(normal[0], normal[1], normal[2]);
 			glVertex3f(x, terrain->getHeight(x, z + 1), z + 1);
 		}
-		glEnd();
+		glEnd();//akhir penggambaran
 	}
 }
 
-
+//Inisialisasi procedur LoadTextureFromBmpFile()
 unsigned int LoadTextureFromBmpFile(char *filename);
 
-//awan
+/*--------------------------------------------------*\
+    Procedure Awan
+\*--------------------------------------------------*/
+
 void awan(void){
-    glPushMatrix();
-    glColor3ub(153, 223, 255);
-    glutSolidSphere(10, 50, 50);
-    glPopMatrix();
+      //Pembentukkan awan    
+    glPushMatrix();//penyimpanan objek
+    glColor3ub(153, 223, 255);//Penentuan warna
+    glutSolidSphere(10, 50, 50);//Penggambaran objek
+    glPopMatrix();//pemanggilan objek
     glPushMatrix();
     glTranslatef(10,0,1);
     glutSolidSphere(5, 50, 50);
@@ -1133,11 +1158,11 @@ void display(void) {
     bus();
     glPopMatrix();
 
-    //dis awan
+     //Penggambaran awan
     glPushMatrix();
-    glTranslatef(0, 100, -150);
-    glScalef(1.8, 1.0, 1.0);
-    awan();
+    glTranslatef(0, 100, -150);//penentuan usulan
+    glScalef(1.8, 1.0, 1.0);//penskalaan sesuai ukuran
+    awan();//pemanggilan procedure awan
     glPopMatrix();
 
     glPushMatrix();
@@ -1239,8 +1264,8 @@ void display(void) {
     bunga();
     glPopMatrix();
 
-	glutSwapBuffers();//menampilkan ke layar
-	glFlush();//untuk memastikan bahwa perintah gambar di eksekusi
+	glutSwapBuffers();
+	glFlush();
 	rot++;
 	angle++;
 
@@ -1252,7 +1277,7 @@ void display(void) {
 
 void init(void) {
     glEnable(GL_TEXTURE_2D);
-	glEnable(GL_DEPTH_TEST);//Agar seluruh proses yang terjadi di buffer belakang pindah ke buffer layar 
+	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	glDepthFunc(GL_LESS);
@@ -1260,9 +1285,10 @@ void init(void) {
 	glEnable(GL_COLOR_MATERIAL);
 	glDepthFunc(GL_LEQUAL);
 	glShadeModel(GL_SMOOTH);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);//digunakan sebagai pemberitahuan untuk OpenGL agar menggunakan perhitungan perspective yang terbaik
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 	glEnable(GL_CULL_FACE);
-
+	
+	//Inisialisais terrain dengan mengambil gambar sesuai dengan nama file
 	_terrain = loadTerrain("heightmap.bmp", 20);
 	_terrainStreet = loadTerrain("heightmapstreet.bmp", 20);
 	_terrainAir = loadTerrain("heightmapAir.bmp", 20);
@@ -1298,8 +1324,8 @@ void init(void) {
 	glGenTextures(3, texture);
 	//binding texture untuk membuat texture 2D
 	glBindTexture(GL_TEXTURE_2D, texture[0]);//menempelkan gambar dari texture ke objek, texture array ke 0 yaitu atap.bmp
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);//GL_TEXTURE_MIN_FILTER-->untuk memfilter Lebih dari satu texel yang dapat dicakup sebuah pixel
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);//GL_TEXTURE_MAG_FILTER-->untuk memfilter lebih dari satu piksel yang dapat dicakup sebuah texel
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, gambar1->sizeX, gambar1->sizeY, 0, GL_RGB,
     GL_UNSIGNED_BYTE, gambar1->data);
 
@@ -1395,9 +1421,9 @@ void keyboard(unsigned char key, int x, int y) {
 }
 
 void reshape(int w, int h) {
-	glViewport(0, 0, (GLsizei) w, (GLsizei) h);//untuk menentukan titik awal dan titik akhir (pixel tampilan)
+	glViewport(0, 0, (GLsizei) w, (GLsizei) h);
 	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();//untuk memanggil matriks identitas ke matriks agar nilai-nilai awal kembali ke pusat koordinat (0,0,0)
+	glLoadIdentity();
 	gluPerspective(60, (GLfloat) w / (GLfloat) h, 0.1, 1000.0);//proyeksi sudut pandang 60 derajat
 	glMatrixMode(GL_MODELVIEW);
 }
