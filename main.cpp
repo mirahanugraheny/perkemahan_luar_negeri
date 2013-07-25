@@ -189,19 +189,16 @@ Gambar * loadTexture4() {
 
 
 
-/*------------------------------------------------------*\
-    Class Terrain 
-    -- Objek daratan --
-\*------------------------------------------------------*/
+//train 2D
+//class untuk terain 2D
 class Terrain {
 private:
-	int w; //variabel lebar
-	int l; //variabel panjang
-	float** hs; //variabel tinggi
-	Vec3f** normals; //variabel untuk pengembangan vektor objek 3 dimensi
+	int w; //Width
+	int l; //Length
+	float** hs; //Heights
+	Vec3f** normals;
 	bool computedNormals; //Whether normals is up-to-date
 public:
-
 	Terrain(int w2, int l2) {
 		w = w2;
 		l = l2;
@@ -1242,8 +1239,8 @@ void display(void) {
     bunga();
     glPopMatrix();
 
-	glutSwapBuffers();
-	glFlush();
+	glutSwapBuffers();//menampilkan ke layar
+	glFlush();//untuk memastikan bahwa perintah gambar di eksekusi
 	rot++;
 	angle++;
 
@@ -1255,7 +1252,7 @@ void display(void) {
 
 void init(void) {
     glEnable(GL_TEXTURE_2D);
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);//Agar seluruh proses yang terjadi di buffer belakang pindah ke buffer layar 
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	glDepthFunc(GL_LESS);
@@ -1301,8 +1298,8 @@ void init(void) {
 	glGenTextures(3, texture);
 	//binding texture untuk membuat texture 2D
 	glBindTexture(GL_TEXTURE_2D, texture[0]);//menempelkan gambar dari texture ke objek, texture array ke 0 yaitu atap.bmp
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);//GL_TEXTURE_MIN_FILTER-->untuk memfilter Lebih dari satu texel yang dapat dicakup sebuah pixel
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);//GL_TEXTURE_MAG_FILTER-->untuk memfilter lebih dari satu piksel yang dapat dicakup sebuah texel
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, gambar1->sizeX, gambar1->sizeY, 0, GL_RGB,
     GL_UNSIGNED_BYTE, gambar1->data);
 
