@@ -1264,8 +1264,8 @@ void display(void) {
     bunga();
     glPopMatrix();
 
-	glutSwapBuffers();
-	glFlush();
+	glutSwapBuffers();//menampilkan ke layar
+	glFlush();//untuk memastikan bahwa perintah gambar di eksekusi
 	rot++;
 	angle++;
 
